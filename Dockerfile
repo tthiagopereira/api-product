@@ -9,6 +9,7 @@ COPY package.json yarn.lock ./
 
 # Instale as dependências do projeto usando o Yarn
 RUN yarn install
+RUN yarn build
 
 # Copie todo o conteúdo do diretório atual para o diretório de trabalho
 COPY . .
