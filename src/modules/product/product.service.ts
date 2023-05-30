@@ -14,8 +14,8 @@ export class ProductService {
     return this.productRepository.findAll();
   }
 
-  async findOne(productId: string): Promise<ProductInterface> {
-    return this.productRepository.findOne(productId);
+  async findOne(code: string) {
+    return this.productRepository.findOne(code);
   }
 
   async update(product: ProductInterface): Promise<ProductInterface> {

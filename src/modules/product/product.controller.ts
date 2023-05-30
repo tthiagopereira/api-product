@@ -14,28 +14,28 @@ import { ProductInterface } from './interfaces/product.interface';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
+  @Get(':productId')
+  async findOne(@Param('productId') productId: string) {
+    return this.productService.findOne(productId);
+  }
+
   @Post()
-  create(@Body() createProductDto: ProductInterface) {
+  async create(@Body() createProductDto: ProductInterface) {
     return this.productService.create(createProductDto);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.productService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productService.findOne(id);
-  }
-
   @Patch()
-  update(@Body() updateProductDto: ProductInterface) {
+  async update(@Body() updateProductDto: ProductInterface) {
     return this.productService.update(updateProductDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.productService.delete(id);
   }
 }

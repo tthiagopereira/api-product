@@ -19,8 +19,8 @@ export class ProductRepository {
     return this.productModel.find().exec();
   }
 
-  async findOne(productId: string): Promise<ProductInterface> {
-    return this.productModel.findById(productId).exec();
+  async findOne(code: string): Promise<ProductInterface> {
+    return this.productModel.findOne({ productId: code }).exec();
   }
 
   async update(product: ProductInterface): Promise<void> {
